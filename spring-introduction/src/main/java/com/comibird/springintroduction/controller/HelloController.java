@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HelloController {
 
   @GetMapping("hello")
-  public String Hello(Model model) {
+  public String hello(Model model) {
     model.addAttribute("data", "hello!!!");
     return "hello";
   }
 
   @GetMapping("hello-mvc")
-  public String HelloMvc(@RequestParam(value = "name") String name, Model model) {
+  public String helloMvc(@RequestParam(value = "name") String name, Model model) {
     model.addAttribute("name", name);
     return "hello-template";
   }
