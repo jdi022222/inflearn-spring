@@ -7,12 +7,19 @@ import com.comibird.springintroduction.domain.Member;
 import com.comibird.springintroduction.repository.MemoryMemberRepository;
 import java.util.List;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class MemberServiceTest {
 
-  MemberService memberService = new MemberService();
-  MemoryMemberRepository memoryMemberRepository = new MemoryMemberRepository();
+  MemberService memberService;
+  MemoryMemberRepository memoryMemberRepository;
+
+  @BeforeEach
+  public void beforeEach() {
+    memoryMemberRepository = new MemoryMemberRepository();
+    memberService = new MemberService(memoryMemberRepository);
+  }
 
   @AfterEach
   public void afterEach() {
