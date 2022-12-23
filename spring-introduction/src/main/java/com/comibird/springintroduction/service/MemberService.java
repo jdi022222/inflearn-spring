@@ -2,13 +2,11 @@ package com.comibird.springintroduction.service;
 
 import com.comibird.springintroduction.domain.Member;
 import com.comibird.springintroduction.repository.MemberRepository;
-import com.comibird.springintroduction.repository.MemoryMemberRepository;
 import java.util.List;
 import java.util.Optional;
-import org.apache.catalina.LifecycleState;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 public class MemberService {
 
   private final MemberRepository memberRepository;
