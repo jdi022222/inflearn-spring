@@ -1,15 +1,16 @@
 package com.comibird.springcorebasic.order;
 
+import com.comibird.springcorebasic.AppConfig;
 import com.comibird.springcorebasic.member.Grade;
 import com.comibird.springcorebasic.member.Member;
 import com.comibird.springcorebasic.member.MemberService;
-import com.comibird.springcorebasic.member.MemberServiceImpl;
 
 public class OrderApp {
 
   public static void main(String[] args) {
-    MemberService memberService = new MemberServiceImpl();
-    OrderService orderService = new OrderServiceImpl();
+    AppConfig appConfig = new AppConfig();
+    MemberService memberService = appConfig.memberService();
+    OrderService orderService = appConfig.orderService();
 
     Long memberId = 1L;
     Member member = new Member(memberId, "memberA", Grade.Vip);

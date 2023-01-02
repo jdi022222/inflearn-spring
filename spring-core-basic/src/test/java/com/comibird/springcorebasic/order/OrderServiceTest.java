@@ -2,17 +2,25 @@ package com.comibird.springcorebasic.order;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.comibird.springcorebasic.AppConfig;
 import com.comibird.springcorebasic.member.Grade;
 import com.comibird.springcorebasic.member.Member;
 import com.comibird.springcorebasic.member.MemberService;
-import com.comibird.springcorebasic.member.MemberServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class OrderServiceTest {
 
-  MemberService memberService = new MemberServiceImpl();
-  OrderService orderService = new OrderServiceImpl();
+  MemberService memberService;
+  OrderService orderService;
+
+  @BeforeEach
+  public void beforeEach() {
+    AppConfig appConfig = new AppConfig();
+    memberService = appConfig.memberService();
+    orderService = appConfig.orderService();
+  }
 
   @DisplayName("주문 생성")
   @Test

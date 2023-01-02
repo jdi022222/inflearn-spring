@@ -1,9 +1,12 @@
 package com.comibird.springcorebasic.member;
 
+import com.comibird.springcorebasic.AppConfig;
+
 public class MemberApp {
 
   public static void main(String[] args) {
-    MemberService memberService = new MemberServiceImpl();
+    AppConfig appConfig = new AppConfig();
+    MemberService memberService = appConfig.memberService();
     Member member = new Member(1L, "memberA", Grade.Vip);
     memberService.join(member);
 
