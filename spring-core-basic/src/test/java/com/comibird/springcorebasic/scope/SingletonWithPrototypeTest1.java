@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
@@ -36,23 +37,21 @@ public class SingletonWithPrototypeTest1 {
 
     ClintBean clintBean2 = ac.getBean(ClintBean.class);
     int count2 = clintBean2.logic();
-    assertThat(count2).isEqualTo(2);
+    assertThat(count2).isEqualTo(1);
 
   }
 
   @Scope("singleton")
   static class ClintBean {
 
-    private final PrototypeBean prototypeBean;
-
     @Autowired
-    public ClintBean(PrototypeBean prototypeBean) {
-      this.prototypeBean = prototypeBean;
-    }
+    private ObjectProvider<PrototypeBean> prototypeBeanProvider;
 
     public int logic() {
+      PrototypeBean prototypeBean = prototypeBeanProvider.getObject();
       prototypeBean.addCount();
-      return prototypeBean.getCount();
+      int count = prototypeBean.getCount();
+      return count;
     }
   }
 
