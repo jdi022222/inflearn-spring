@@ -6,7 +6,6 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.inject.Provider;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
@@ -30,20 +29,20 @@ public class SingletonWithPrototypeTest1 {
   @Test
   void singletonClientUsePrototype() {
     AnnotationConfigApplicationContext ac = new
-        AnnotationConfigApplicationContext(ClintBean.class, PrototypeBean.class);
+        AnnotationConfigApplicationContext(ClientBean.class, PrototypeBean.class);
 
-    ClintBean clintBean1 = ac.getBean(ClintBean.class);
+    ClientBean clintBean1 = ac.getBean(ClientBean.class);
     int count1 = clintBean1.logic();
     assertThat(count1).isEqualTo(1);
 
-    ClintBean clintBean2 = ac.getBean(ClintBean.class);
+    ClientBean clintBean2 = ac.getBean(ClientBean.class);
     int count2 = clintBean2.logic();
     assertThat(count2).isEqualTo(1);
 
   }
 
   @Scope("singleton")
-  static class ClintBean {
+  static class ClientBean {
 
     @Autowired
     private Provider<PrototypeBean> provider;
