@@ -2,17 +2,16 @@ package com.comibird.springcorebasic.web;
 
 import com.comibird.springcorebasic.common.MyLogger;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
 public class LogDemoService {
 
-  private final ObjectProvider<MyLogger> myLoggerProvider;
+  private final MyLogger myLogger;
 
   public void logic(String id) {
-    MyLogger myLogger = myLoggerProvider.getObject();
+    // 이 시점에서 MyLogger 빈 생성
     myLogger.log("service id = " + id);
   }
 }
