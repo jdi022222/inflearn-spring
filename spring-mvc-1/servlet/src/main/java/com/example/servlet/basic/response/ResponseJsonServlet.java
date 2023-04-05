@@ -21,6 +21,7 @@ public class ResponseJsonServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //Content-Type: application/json
         response.setContentType("application/json");
+        //application/json 은 utf-8이 default 라 생략 가능
         response.setCharacterEncoding("utf-8");
         HelloData data = new HelloData();
         data.setUsername("kim");
