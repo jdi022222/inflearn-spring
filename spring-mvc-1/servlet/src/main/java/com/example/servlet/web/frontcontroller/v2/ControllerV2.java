@@ -1,6 +1,6 @@
 package com.example.servlet.web.frontcontroller.v2;
 
-import com.example.servlet.web.MyView;
+import com.example.servlet.web.frontcontroller.MyView;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;

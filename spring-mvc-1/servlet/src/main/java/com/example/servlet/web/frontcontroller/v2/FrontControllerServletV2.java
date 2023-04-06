@@ -1,10 +1,6 @@
 package com.example.servlet.web.frontcontroller.v2;
 
-import com.example.servlet.web.MyView;
-import com.example.servlet.web.frontcontroller.v1.ControllerV1;
-import com.example.servlet.web.frontcontroller.v1.MemberFormControllerV1;
-import com.example.servlet.web.frontcontroller.v1.MemberListControllerV1;
-import com.example.servlet.web.frontcontroller.v1.MemberSaveControllerV1;
+import com.example.servlet.web.frontcontroller.MyView;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

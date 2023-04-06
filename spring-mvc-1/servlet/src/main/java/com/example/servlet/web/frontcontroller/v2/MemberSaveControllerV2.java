@@ -2,9 +2,7 @@ package com.example.servlet.web.frontcontroller.v2;
 
 import com.example.servlet.domain.member.Member;
 import com.example.servlet.domain.member.MemberRepository;
-import com.example.servlet.web.MyView;
-import com.example.servlet.web.frontcontroller.v1.ControllerV1;
-import jakarta.servlet.RequestDispatcher;
+import com.example.servlet.web.frontcontroller.MyView;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
