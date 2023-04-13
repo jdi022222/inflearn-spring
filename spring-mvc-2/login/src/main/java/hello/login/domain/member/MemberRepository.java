@@ -17,7 +17,7 @@ public class MemberRepository {
     private static AtomicLong sequence = new AtomicLong(0);
 
     public Member save(Member member) {
-        member.setId(sequence.getAndIncrement());
+        member.setId(sequence.incrementAndGet());
         log.info("save: member={}", member);
         store.put(member.getId(), member);
         return member;
