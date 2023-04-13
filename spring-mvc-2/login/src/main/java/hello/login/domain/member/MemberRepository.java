@@ -37,7 +37,7 @@ public class MemberRepository {
         return Optional.empty();*/
 
         return findAll().stream()
-                .filter(m -> m.getId().equals(loginId))
+                .filter(m -> m.getLoginId().equals(loginId))
                 .findFirst();
     }
 
