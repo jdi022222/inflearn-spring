@@ -1,9 +1,11 @@
 package com.comibird.exception;
 
 import com.comibird.exception.filter.LogFilter;
+import com.comibird.exception.interceptor.LogInterceptor;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.DispatcherType;
@@ -19,6 +21,16 @@ public class WebConfig implements WebMvcConfigurer {
         filterRegistrationBean.addUrlPatterns("/*");
         filterRegistrationBean.setDispatcherTypes(DispatcherType.REQUEST, DispatcherType.ERROR);
         return filterRegistrationBean;
+    }
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new LogInterceptor())
+                .order(1)
+                .addPathPatterns("/**")
+                .excludePathPatterns(
+                        "/css/**", "/*.ico", "/error", "/error-page/**" //오류 페이지 경로
+                );
     }
 }
 
