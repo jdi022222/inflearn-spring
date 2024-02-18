@@ -6,9 +6,10 @@ import org.springframework.context.annotation.Import;
 
 import site.comibird.aop.order.aop.AspectV1;
 import site.comibird.aop.order.aop.AspectV2;
+import site.comibird.aop.order.aop.AspectV3;
 
 @SpringBootApplication
-@Import(AspectV2.class)
+@Import(AspectV3.class)
 public class AopApplication {
 
 	public static void main(String[] args) {
