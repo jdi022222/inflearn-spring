@@ -8,9 +8,10 @@ import site.comibird.aop.order.aop.AspectV1;
 import site.comibird.aop.order.aop.AspectV2;
 import site.comibird.aop.order.aop.AspectV3;
 import site.comibird.aop.order.aop.AspectV4Pointcut;
+import site.comibird.aop.order.aop.AspectV5Order;
 
 @SpringBootApplication
-@Import(AspectV4Pointcut.class)
+@Import({AspectV5Order.LogAspect.class, AspectV5Order.TxAspect.class})
 public class AopApplication {
 
 	public static void main(String[] args) {
