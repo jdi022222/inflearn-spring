@@ -1,4 +1,4 @@
-package site.comibird.aop;
+package site.comibird.aop.order;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
