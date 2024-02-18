@@ -5,9 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
 
 import site.comibird.aop.order.aop.AspectV1;
+import site.comibird.aop.order.aop.AspectV2;
 
 @SpringBootApplication
-@Import(AspectV1.class)
+@Import(AspectV2.class)
 public class AopApplication {
 
 	public static void main(String[] args) {
