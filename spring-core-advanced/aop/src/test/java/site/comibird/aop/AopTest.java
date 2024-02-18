@@ -7,23 +7,25 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import lombok.extern.slf4j.Slf4j;
-import site.comibird.aop.order.OrderRepositoryV0;
-import site.comibird.aop.order.OrderServiceV0;
+import site.comibird.aop.order.OrderRepository;
+import site.comibird.aop.order.OrderService;
 
 @Slf4j
 @SpringBootTest
 public class AopTest {
 
 	@Autowired
-	OrderServiceV0 orderService;
+	OrderService orderService;
 
 	@Autowired
-	OrderRepositoryV0 orderRepository;
+	OrderRepository orderRepository;
 
 	@Test
 	void aopInfo() {
 		log.info("isAop", AopUtils.isAopProxy(orderService));
 		log.info("isAop", AopUtils.isAopProxy(orderRepository));
+		Assertions.assertThat(AopUtils.isAopProxy(orderService)).isTrue();
+		Assertions.assertThat(AopUtils.isAopProxy(orderRepository)).isTrue();
 	}
 
 	@Test
