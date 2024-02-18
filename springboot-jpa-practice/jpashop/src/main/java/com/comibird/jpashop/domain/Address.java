@@ -1,8 +1,5 @@
 package com.comibird.jpashop.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-
 import javax.persistence.Embeddable;
 
 @Embeddable
@@ -15,5 +12,4 @@ public class Address {
     public Address() {
 
     }
-
 }
