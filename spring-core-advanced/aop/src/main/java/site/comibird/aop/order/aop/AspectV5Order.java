@@ -26,16 +26,18 @@ public class AspectV5Order {
 		@Around("site.comibird.aop.order.aop.Pointcuts.orderAndService()")
 		public Object doTransaction(ProceedingJoinPoint joinPoint) throws Throwable {
 			try {
-				log.info("[트랜잭션 시작] {}", joinPoint.getSignature());
+				//@Before
+				log.info("[around][트랜잭션 시작] {}", joinPoint.getSignature());
 				Object result = joinPoint.proceed();
-				log.info("[트랜잭션 커밋] {}", joinPoint.getSignature());
-				return result;
+				//@AfterReturning
+				log.info("[around][트랜잭션 커밋] {}", joinPoint.getSignature()); return result;
 			} catch (Exception e) {
-				log.info("[트랜잭션 롤백] {}", joinPoint.getSignature());
+				//@AfterThrowing
+				log.info("[around][트랜잭션 롤백] {}", joinPoint.getSignature());
 				throw e;
 			} finally {
-				log.info("[리소스 릴리즈] {}", joinPoint.getSignature());
-			}
+				//@After
+				log.info("[around][리소스 릴리즈] {}", joinPoint.getSignature()); }
 		}
 	}
 }
